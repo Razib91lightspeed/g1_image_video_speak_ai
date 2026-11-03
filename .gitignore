@@ -1,0 +1,41 @@
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Compiled programs
+build/
+cmake-build-*/
+CMakeFiles/
+
+# Downloaded models
+speech/models/
+*.onnx
+*.onnx.json
+*.pt
+*.pth
+*.safetensors
+
+# Generated data
+temp/
+*.wav
+*.pcm
+*.mp3
+*.ogg
+
+# Secrets
+.env
+.env.*
+!.env.example
+*credentials*
+*secret*
+*.pem
+id_ed25519*
+*.key
+
+# Editor files
+.DS_Store
+.vscode/
+.idea/
