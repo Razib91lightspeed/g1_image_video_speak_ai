@@ -1,0 +1,25 @@
+[Unit]
+Description=G1 Buddy - persistent SSH tunnel to Spark Qwen
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+
+ExecStart=/usr/bin/ssh -N \
+    -i /home/rhasan/.ssh/id_ed25519_spark \
+    -o IdentitiesOnly=yes \
+    -o BatchMode=yes \
+    -o ExitOnForwardFailure=yes \
+    -o ServerAliveInterval=15 \
+    -o ServerAliveCountMax=3 \
+    -o ConnectTimeout=10 \
+    -L 127.0.0.1:18000:127.0.0.1:8000 \
+    rhasan@10.11.0.50
+
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
